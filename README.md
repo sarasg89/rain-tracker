@@ -1,6 +1,12 @@
-#
+# Weather forecast
 
 ## Description
+
+This application retrieves weather data using the API from [OpenWeather](https://openweathermap.org/).
+
+The user is able to enter the name of a city into a form and the 5-day weather forecast for that city is displayed on screen, which includes the city name, date, temperature, humidity and wind speed, as well as icons representing the weather conditions.
+
+Every time the user searches for a new city, this is added to the search history. The user can click on the names of those cities and see current weather conditions.
 
 ## Screenshots
 
@@ -9,6 +15,10 @@
 ## Credits
 
 Reset CSS found in Eric A. Meyer's [site](https://meyerweb.com/eric/tools/css/reset/)
+
+[5 Day Weather Forecast](https://openweathermap.org/forecast5)
+
+[Weather Map](https://openweathermap.org/)
 
 ## License
 
