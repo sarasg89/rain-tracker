@@ -20,6 +20,8 @@ Reset CSS found in Eric A. Meyer's [site](https://meyerweb.com/eric/tools/css/re
 
 [Weather Map](https://openweathermap.org/)
 
+Background photo by [Pexels](https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1282314) from [Pixabay](https://pixabay.com/photos/clouds-sky-bright-daylight-light-1282314/)
+
 ## License
 
 MIT License

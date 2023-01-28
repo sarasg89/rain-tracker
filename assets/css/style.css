@@ -10,3 +10,7 @@ header h1 {
     font-family: 'Pacifico', cursive;
 }
 
+body {
+    background-image: url(../images/clouds-background.jpg);
+    background-size: cover;
+}

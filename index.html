@@ -18,11 +18,11 @@
 </head>
 
 <body>
-    <header class="container-fluid text-center bg-info-subtle text-success display-1 p-4">
+    <header class="container-fluid text-center text-info display-1 p-4">
         <h1>Weather Forecast</h1>
     </header>
 
-    <main class="container text-center mb-3 mt-3 row align-items-start">
+    <main class="container text-center mb-3 mt-3 row">
         <aside class="col-3">
             <form>
                 <label for="search-city" class="form-label">Search for a city</label><br>
@@ -36,16 +36,55 @@
         </aside>
 
         <div id="forecast" class="col-9 ps-5">
-            <div id="today-forecast" class="mb-5 text-start">
-                <h2 id="city" class="pb-3 fw-bold display-6">City</h2>
-                <p id="icon" class="pb-3">Icon</p>
-                <p id="temp" class="pb-3">Temperature: </p>
-                <p id="wind" class="pb-3">Wind: </p>
-                <p id="humidity" class="pb-3">Humidity: </p>
+            <div id="today-forecast">
+                <h2 id="city" class="fw-bold display-6">City</h2>
+                <div class="d-flex justify-content-between mt-4">
+                    <p id="icon" class="pb-3 bg-black bg-opacity-25">Icon</p>
+                    <p id="temp" class="pb-3">Temperature: </p>
+                    <p id="wind" class="pb-3">Wind: </p>
+                    <p id="humidity" class="pb-3">Humidity: </p>
+                </div>
             </div>
 
-            <div id="5-day-forecast">
+            <div id="5-day-forecast" class="py-5">
                 <h2 class="pb-3 fw-bold display-6">5-day forecast</h2>
+                <div id="days" class="d-flex justify-content-between">
+                    <div id="day-1" class="bg-black bg-opacity-25 p-4">
+                        <p id="date1" class="py-1">Date1</p>
+                        <p id="icon1" class="py-1">Icon1</p>
+                        <p id="temp1" class="py-1">Temp1</p>
+                        <p id="wind1" class="py-1">Wind1</p>
+                        <p id="humidity1" class="py-1">Humidity1</p>
+                    </div>
+                    <div id="day-2" class="bg-black bg-opacity-25 p-4">
+                        <p id="date2" class="py-1">Date2</p>
+                        <p id="icon2" class="py-1">Icon2</p>
+                        <p id="temp2" class="py-1">Temp2</p>
+                        <p id="wind2" class="py-1">Wind2</p>
+                        <p id="humidity2" class="py-1">Humidity2</p>
+                    </div>
+                    <div id="day-3" class="bg-black bg-opacity-25 p-4">
+                        <p id="date3" class="py-1">Date3</p>
+                        <p id="icon3" class="py-1">Icon3</p>
+                        <p id="temp3" class="py-1">Temp3</p>
+                        <p id="wind3" class="py-1">Wind3</p>
+                        <p id="humidity3" class="py-1">Humidity3</p>
+                    </div>
+                    <div id="day-4" class="bg-black bg-opacity-25 p-4">
+                        <p id="date4" class="py-1">Date4</p>
+                        <p id="icon4" class="py-1">Icon4</p>
+                        <p id="temp4" class="py-1">Temp4</p>
+                        <p id="wind4" class="py-1">Wind4</p>
+                        <p id="humidity4" class="py-1">Humidity4</p>
+                    </div>
+                    <div id="day-5" class="bg-black bg-opacity-25 p-4">
+                        <p id="date5" class="py-1">Date5</p>
+                        <p id="icon5" class="py-1">Icon5</p>
+                        <p id="temp5" class="py-1">Temp5</p>
+                        <p id="wind5" class="py-1">Wind5</p>
+                        <p id="humidity5" class="py-1">Humidity5</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
