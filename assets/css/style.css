@@ -2,6 +2,11 @@
 font-family: 'Pacifico', cursive;
 font-family: 'Varela Round', sans-serif; */
 
+html {
+    font-family: 'Varela Round', sans-serif; 
+}
+
 header h1 {
     font-family: 'Pacifico', cursive;
 }
+
