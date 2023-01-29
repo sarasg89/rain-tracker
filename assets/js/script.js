@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     // Function to display the weather data retrieved for today. It will display the city name, temperature, wind and humidity values
     function displayToday(data) {
-        var date = dayjs.unix(data.list[0].dt).format("dddd D MMMM YYYY HH:mm");
+        var date = dayjs.unix(data.list[0].dt).format("dddd D MMMM YYYY");
         var image = "http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@4x.png";
         cityEl.text(data.city.name + ", " + data.city.country);
         dateEl.text(date);
@@ -29,8 +29,7 @@ $(document).ready(function () {
         $("#5-day-forecast").text("5-day forecast");
         for (var i = 0; i < daysChildrenEl.length; i++) {
             // i would start at index 0 which is the current day. Because the current day is already displayed at the top, we want to ignore it and jump ahead to the next day, that is, the next 8th index (40 hour slots dived by 5 days equal 8 slots per day). 
-            // + 1 is added to i to ensure the 5-day forecast always shows the next day
-            var currentEl = data.list[i * 8];
+            var currentEl = data.list[(i*8)+2];
 
             var futureDays = daysChildrenEl.eq(i).children();
             var dateFutureEl = futureDays.eq(0);
@@ -41,7 +40,7 @@ $(document).ready(function () {
 
             var imageForFuture = "http://openweathermap.org/img/wn/" + currentEl.weather[0].icon + ".png";
 
-            dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd HH:mm"));
+            dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd"));
             iconFutureEl.html("<img src=" + imageForFuture + ">");
             tempFutureEl.text("Temp: " + Math.round(currentEl.main.temp) + " ℃");
             windFutureEl.text("Wind: " + currentEl.wind.speed + " MPH");

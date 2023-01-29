@@ -6,11 +6,29 @@ This application retrieves weather data using the API from [OpenWeather](https:/
 
 The user is able to enter the name of a city into a form and the 5-day weather forecast for that city is displayed on screen, which includes the city name, date, temperature, humidity and wind speed, as well as icons representing the weather conditions.
 
-Every time the user searches for a new city, this is added to the search history. The user can click on the names of those cities and see current weather conditions.
+Every time the user searches for a new city, this is added to the search history. The user can click on the names of those cities and see current weather conditions. The user can also clear the search history.
 
 ## Screenshots
 
+### Start page
+
+![Screenshot of the start page](./assets/images/Screenshot1.png)
+
+### Sample weather
+
+![Screenshot of the weather for Toronto](./assets/images/Screenshot2.png)
+
+### Search history
+
+![Screenshot showing the search history](./assets/images/Screenshot3.png)
+
+### Error message
+
+![Screenshot showing warning message if a city can't be found](./assets/images/Screenshot4.png)
+
 ## Deployment
+
+<https://sarasg89.github.io/rain-tracker/>
 
 ## Credits
 
@@ -25,7 +43,6 @@ Background photo by [Pexels](https://pixabay.com/users/pexels-2286921/?utm_sourc
 I followed this [YouTube](https://www.youtube.com/watch?v=Ai-bPuK9lJc&ab_channel=AjCode) tutorial on how to add event listeners to dynamic elements
 
 Image for the 404 page by [Freepik](https://www.freepik.com/free-vector/hand-drawn-404-error_1587371.htm#query=404%20not%20found&position=1&from_view=search&track=ais)
-
 
 ## License
 
