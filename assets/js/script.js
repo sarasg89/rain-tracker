@@ -2,10 +2,8 @@ $(document).ready(function () {
     var searchInputEl = $("#search-city");
     var searchBtnEl = $("#search-button");
     var historyEl = $("#search-history");
-    var historyBtnEl = $("#history-button");
     var cityEl = $("#city");
     var dateEl = $("#date");
-    var todayDateEl = $("#today-date");
     var iconEl = $("#icon");
     var tempEl = $("#temp");
     var windEl = $("#wind");
@@ -62,7 +60,7 @@ $(document).ready(function () {
             citySaved = JSON.parse(alreadyInStorage);
         }
 
-        // If the input box is blank, the value will not be saved
+        // If the input box is blank, the value will not be saved and an alert box will pop up
         if (value.trim() === "") {
             return
         } else {
@@ -86,7 +84,7 @@ $(document).ready(function () {
         }
 
         for (var i = 0; i < alreadySearched.length; i++) {
-            historyEl.append("<li id='btn' class='btn btn-outline-secondary my-1'>" + alreadySearched[i] + "</li>")
+            historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + alreadySearched[i] + "</li>")
         }
 
     }
@@ -104,6 +102,8 @@ $(document).ready(function () {
             .then(function (response) {
                 if (response.status === 404) {
                     window.location.replace("/404.html")
+                } else if (response.status === 400) {
+                    $("form").append('<div class="alert alert-danger" role="alert">Error! You must enter a city name. Please try again.</div>')
                 }
                 return response.json()
             })
@@ -129,7 +129,7 @@ $(document).ready(function () {
     }
 
     // Event listener for the search history buttons
-    $(document).on("click", "#btn", function getApiSaved(event) {
+    $(document).on("click", ".city-btn", function getApiSaved(event) {
         var clickedCity = $(event.target).text();
         var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
         geoLocationURL = geoLocationURL + clickedCity;
