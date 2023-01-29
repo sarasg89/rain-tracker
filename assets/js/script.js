@@ -47,11 +47,25 @@ function display5Days(data) {
     }
 }
 
+function saveCity(value) {
+    var citySaved = [];
+    var alreadyInStorage = localStorage.getItem("city");
+    if (alreadyInStorage !== null) {
+        citySaved = JSON.parse(alreadyInStorage);
+    }
+
+    citySaved.push(value);
+    localStorage.setItem("city", JSON.stringify(citySaved));
+}
+
+
 // Function to retrieve weather data from the Open Weather Map API
 // Within this function, we call on the displayToday and display5Days functions as well
 function getApi() {
     var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
     geoLocationURL = geoLocationURL + searchInputEl.val();
+
+    saveCity(searchInputEl.val());
 
     fetch(geoLocationURL)
         .then(function (response) {
@@ -63,7 +77,6 @@ function getApi() {
             var weatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=cccdf7669ae2e9f41bf5e5174cd0a37b&';
 
             weatherUrl = weatherUrl + "lat=" + lat + "&lon=" + lon;
-            console.log(weatherUrl);
 
             fetch(weatherUrl)
                 .then(function (response) {
