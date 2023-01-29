@@ -25,6 +25,7 @@ $(document).ready(function () {
     // Function to display the weather data retrieved for the next 5 days. It will display the city name, temperature, wind and humidity values
     function display5Days(data) {
         var daysChildrenEl = $("#days").children();
+        daysChildrenEl.attr("class", "py-5 px-4");
         $("#5-day-forecast").text("5-day forecast");
         for (var i = 0; i < daysChildrenEl.length; i++) {
             // i would start at index 0 which is the current day. Because the current day is already displayed at the top, we want to ignore it and jump ahead to the next day, that is, the next 8th index (40 hour slots dived by 5 days equal 8 slots per day). 
@@ -107,7 +108,6 @@ $(document).ready(function () {
                 return response.json()
             })
             .then(function (data) {
-                console.log(data);
 
                 // If OpenWeatherMap can't find the city, a warning appears on screen
                 if (data.length === 0) {
@@ -119,8 +119,8 @@ $(document).ready(function () {
                     var weatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=cccdf7669ae2e9f41bf5e5174cd0a37b&';
                     weatherUrl = weatherUrl + "lat=" + lat + "&lon=" + lon;
 
-                    // The searched city is saved to local storage
-                    saveCity(searchInputEl.val());
+                    // The name of the returned city is saved, this is done so that if the user misspells the name, the actual correct name is stored and displayed
+                    saveCity(data[0].name);
 
                     fetch(weatherUrl)
                         .then(function (response) {
@@ -134,7 +134,7 @@ $(document).ready(function () {
                             displayToday(data);
                             display5Days(data);
                             // The city just searched is inmediatelly added to the bottom of the search history
-                            historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + searchInputEl.val() + "</li>")
+                            historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + data.city.name + "</li>")
                         });
                 }
             })
