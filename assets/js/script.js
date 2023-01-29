@@ -93,7 +93,7 @@ $(document).ready(function () {
     // Function to retrieve weather data from the Open Weather Map API
     // Within this function, we call on the displayToday and display5Days functions as well
     function getApi() {
-        var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
+        var geoLocationURL = "https://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
         // The geoLocationUrl is completed by adding the name of the city at the end. The name of the city is retrieved from the input box in the form
         geoLocationURL = geoLocationURL + searchInputEl.val();
 
@@ -120,12 +120,14 @@ $(document).ready(function () {
                     weatherUrl = weatherUrl + "lat=" + lat + "&lon=" + lon;
 
                     // The name of the returned city is saved, this is done so that if the user misspells the name, the actual correct name is stored and displayed
-                    saveCity(data[0].name);
+                    saveCity(data[0].name + ", " + data[0].country);
 
                     fetch(weatherUrl)
                         .then(function (response) {
                             if (response.status === 404) {
                                 window.location.replace("/404.html")
+                            } else if (!response.ok) {
+                                $("form").append("<div class='alert alert-danger' role='alert'>Something went wrong.</div>");
                             }
                             return response.json();
                         })
@@ -143,7 +145,7 @@ $(document).ready(function () {
     // Event listener for the search history buttons that calls on a function to retrieve the name of the city from local storage, fetch the weather info from the APIs and displays it on screen
     $(document).on("click", ".city-btn", function getApiSaved(event) {
         var clickedCity = $(event.target).text();
-        var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
+        var geoLocationURL = "https://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
         geoLocationURL = geoLocationURL + clickedCity;
 
         fetch(geoLocationURL)
@@ -164,6 +166,8 @@ $(document).ready(function () {
                     .then(function (response) {
                         if (response.status === 404) {
                             window.location.replace("/404.html")
+                        } else if (!response.ok) {
+                            $("form").append("<div class='alert alert-danger' role='alert'>Something went wrong.</div>");
                         }
                         return response.json();
                     })

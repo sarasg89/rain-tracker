@@ -26,6 +26,7 @@ I followed this [YouTube](https://www.youtube.com/watch?v=Ai-bPuK9lJc&ab_channel
 
 Image for the 404 page by [Freepik](https://www.freepik.com/free-vector/hand-drawn-404-error_1587371.htm#query=404%20not%20found&position=1&from_view=search&track=ais)
 
+
 ## License
 
 MIT License
