@@ -22,6 +22,8 @@ Reset CSS found in Eric A. Meyer's [site](https://meyerweb.com/eric/tools/css/re
 
 Background photo by [Pexels](https://pixabay.com/users/pexels-2286921/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1282314) from [Pixabay](https://pixabay.com/photos/clouds-sky-bright-daylight-light-1282314/)
 
+I followed this [YouTube](https://www.youtube.com/watch?v=Ai-bPuK9lJc&ab_channel=AjCode) tutorial on how to add event listeners to dynamic elements
+
 ## License
 
 MIT License
