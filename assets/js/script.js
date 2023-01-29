@@ -90,41 +90,51 @@ $(document).ready(function () {
     }
 
     // Function to retrieve weather data from the Open Weather Map API
-    // The searched city is saved to local storage right away with the saveCity function being called here
     // Within this function, we call on the displayToday and display5Days functions as well
     function getApi() {
         var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
+        // The geoLocationUrl is completed by adding the name of the city at the end. The name of the city is retrieved from the input box in the form
         geoLocationURL = geoLocationURL + searchInputEl.val();
-
-        saveCity(searchInputEl.val());
 
         fetch(geoLocationURL)
             .then(function (response) {
                 if (response.status === 404) {
                     window.location.replace("/404.html")
+                    // If the user doesn't enter a value in the input box, a warning appears on screen
                 } else if (response.status === 400) {
                     $("form").append('<div class="alert alert-danger" role="alert">Error! You must enter a city name. Please try again.</div>')
                 }
                 return response.json()
             })
             .then(function (data) {
-                var lat = data[0].lat;
-                var lon = data[0].lon;
-                var weatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=cccdf7669ae2e9f41bf5e5174cd0a37b&';
+                console.log(data);
 
-                weatherUrl = weatherUrl + "lat=" + lat + "&lon=" + lon;
+                // If OpenWeatherMap can't find the city, a warning appears on screen
+                if (data.length === 0) {
+                    $("form").append("<div class='alert alert-danger' role='alert'>I couldn't find that city. Please check your spelling and try again.</div>");
+                } else {
+                    // We retrieve the data from the previous API and store the latitude and longitude in variables that are then added as query prompts to the next API
+                    var lat = data[0].lat;
+                    var lon = data[0].lon;
+                    var weatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=cccdf7669ae2e9f41bf5e5174cd0a37b&';
+                    weatherUrl = weatherUrl + "lat=" + lat + "&lon=" + lon;
 
-                fetch(weatherUrl)
-                    .then(function (response) {
-                        if (response.status === 404) {
-                            window.location.replace("/404.html")
-                        }
-                        return response.json();
-                    })
-                    .then(function (data) {
-                        displayToday(data);
-                        display5Days(data);
-                    });
+                    // The searched city is saved to local storage
+                    saveCity(searchInputEl.val());
+
+                    fetch(weatherUrl)
+                        .then(function (response) {
+                            if (response.status === 404) {
+                                window.location.replace("/404.html")
+                            }
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            // When the data is fetched, we call on the functions to display the weather for the current city selected
+                            displayToday(data);
+                            display5Days(data);
+                        });
+                }
             })
     }
 
@@ -169,5 +179,5 @@ $(document).ready(function () {
     })
 
     previousSearches();
-    searchBtnEl.click(getApi);
+    searchBtnEl.on("click", getApi);
 })
