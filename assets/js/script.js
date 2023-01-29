@@ -92,9 +92,10 @@ $(document).ready(function () {
     }
 
     // Function to retrieve weather data from the Open Weather Map API
+    // The searched city is saved to local storage right away with the saveCity function being called here
     // Within this function, we call on the displayToday and display5Days functions as well
     function getApi() {
-        var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
+        var geoLocationURL = "https://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
         geoLocationURL = geoLocationURL + searchInputEl.val();
 
         saveCity(searchInputEl.val());
