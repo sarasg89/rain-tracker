@@ -18,20 +18,20 @@
 </head>
 
 <body>
-    <header class="container-fluid text-center text-info display-1 p-4">
+    <header class="container-fluid text-center text-primary display-1 p-4">
         <h1>Weather Forecast</h1>
     </header>
 
-    <main class="container text-center mb-3 mt-3 row">
+    <main class="container text-center m-3 row">
         <aside class="col-3">
-            <form>
-                <label for="search-city" class="form-label">Search for a city</label><br>
-                <input type="text" id="search-city" class="form-control"><br>
-                <input type="button" value="Search" id="search-button" class="btn btn-primary">
+            <form class="row">
+                <label for="search-city" class="form-label my-1">Search for a city</label><br>
+                <input type="text" id="search-city" class="form-control my-1"><br>
+                <input type="button" value="Search" id="search-button" class="btn btn-primary my-1">
             </form>
 
-            <div id="search-history">
-
+            <div class="mt-4">
+                <ul id="search-history" class="row"></ul>
             </div>
         </aside>
 
