@@ -80,7 +80,7 @@ function previousSearches() {
     }
 
     for (var i = 0; i < alreadySearched.length; i++) {
-        historyEl.append("<li id='history-button' class='btn btn-outline-secondary my-1' onclick='getApiSaved(\"" + alreadySearched[i] + "\")'>" + alreadySearched[i] + "</li>")
+        historyEl.append("<li id='btn' class='btn btn-outline-secondary my-1'>" + alreadySearched[i] + "</li>")
     }
 
 }
@@ -118,10 +118,10 @@ function getApi() {
 
 
 // The event listener is added to the <ul> element because the <li> elements are added dynamically and don't exist yet in the HTML code when the pages loads
-function getApiSaved(clickedCity) {
+$(document).on("click", "#btn", function getApiSaved(event) {
+    var clickedCity = $(event.target).text();
     var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
     geoLocationURL = geoLocationURL + clickedCity;
-    console.log(clickedCity)
 
     fetch(geoLocationURL)
         .then(function (response) {
@@ -143,7 +143,8 @@ function getApiSaved(clickedCity) {
                     display5Days(data);
                 });
         })
-}
+});
+
 
 
 previousSearches();
