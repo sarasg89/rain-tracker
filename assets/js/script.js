@@ -22,9 +22,12 @@ function displayToday(data) {
 // Function to display the weather data retrieved for the next 5 days. It will display the city name, temperature, wind and humidity values
 function display5Days(data) {
     var daysChildrenEl = $("#days").children();
-    for (var i = 0; i < data.list.length; i++) {
-        var currentEl = data.list[i];
-        
+    for (var i = 0; i < daysChildrenEl.length; i++) {
+        // i would start at index 0 which is the current day. Because the current day is already displayed at the top, we want to ignore it and jump ahead to the next day, that is, the next 8th index (40 hour slots dived by 5 days equal 8 slots per day). 
+        // + 1 is added to i to ensure the 5-day forecast always shows the next day
+        var currentEl = data.list[(i*8)+1];
+        console.log(data);
+
         var futureDays = daysChildrenEl.eq(i).children();
         var dateFutureEl = futureDays.eq(0);
         var iconFutureEl = futureDays.eq(1);
@@ -32,11 +35,11 @@ function display5Days(data) {
         var windFutureEl = futureDays.eq(3);
         var humidityFutureEl = futureDays.eq(4);
 
-        var imageForFuture =  "http://openweathermap.org/img/wn/" + currentEl.weather[0].icon + "@2x.png";
+        var imageForFuture =  "http://openweathermap.org/img/wn/" + currentEl.weather[0].icon + ".png";
 
-        dateFutureEl.text(dayjs.unix(currentEl.dt).format("ddd D MMM"));
+        dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd"));
         iconFutureEl.html("<img src=" + imageForFuture + ">");
-        tempFutureEl.text("Temperature: " + currentEl.main.temp + " ℃");
+        tempFutureEl.text("Temp: " + currentEl.main.temp + " ℃");
         windFutureEl.text("Wind: " + currentEl.wind.speed + " MPH");
         humidityFutureEl.text("Humidity: " + currentEl.main.humidity + " %")
         
@@ -46,14 +49,13 @@ function display5Days(data) {
 // Function to retrieve weather data from the Open Weather Map API
 // Within this function, we call on the displayToday and display5Days functions as well
 function getApi() {
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=43.371&lon=-8.396&units=metric&cnt=6&appid=cccdf7669ae2e9f41bf5e5174cd0a37b';
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=49.2497&lon=-123.1193&units=metric&appid=cccdf7669ae2e9f41bf5e5174cd0a37b';
 
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             displayToday(data);
             display5Days(data);
         });
