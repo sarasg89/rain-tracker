@@ -133,12 +133,14 @@ $(document).ready(function () {
                             // When the data is fetched, we call on the functions to display the weather for the current city selected
                             displayToday(data);
                             display5Days(data);
+                            // The city just searched is inmediatelly added to the bottom of the search history
+                            historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + searchInputEl.val() + "</li>")
                         });
                 }
             })
     }
 
-    // Event listener for the search history buttons
+    // Event listener for the search history buttons that calls on a function to retrieve the name of the city from local storage, fetch the weather info from the APIs and displays it on screen
     $(document).on("click", ".city-btn", function getApiSaved(event) {
         var clickedCity = $(event.target).text();
         var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
