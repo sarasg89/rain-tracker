@@ -24,6 +24,8 @@ Background photo by [Pexels](https://pixabay.com/users/pexels-2286921/?utm_sourc
 
 I followed this [YouTube](https://www.youtube.com/watch?v=Ai-bPuK9lJc&ab_channel=AjCode) tutorial on how to add event listeners to dynamic elements
 
+Image for the 404 page by [Freepik](https://www.freepik.com/free-vector/hand-drawn-404-error_1587371.htm#query=404%20not%20found&position=1&from_view=search&track=ais)
+
 ## License
 
 MIT License

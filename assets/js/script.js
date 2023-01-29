@@ -95,14 +95,17 @@ $(document).ready(function () {
     // The searched city is saved to local storage right away with the saveCity function being called here
     // Within this function, we call on the displayToday and display5Days functions as well
     function getApi() {
-        var geoLocationURL = "https://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
+        var geoLocationURL = "http://api.openweathermap.org/geo/1.0/direct?appid=cccdf7669ae2e9f41bf5e5174cd0a37b&q=";
         geoLocationURL = geoLocationURL + searchInputEl.val();
 
         saveCity(searchInputEl.val());
 
         fetch(geoLocationURL)
             .then(function (response) {
-                return response.json();
+                if (response.status === 404) {
+                    window.location.replace("/404.html")
+                }
+                return response.json()
             })
             .then(function (data) {
                 var lat = data[0].lat;
@@ -113,6 +116,9 @@ $(document).ready(function () {
 
                 fetch(weatherUrl)
                     .then(function (response) {
+                        if (response.status === 404) {
+                            window.location.replace("/404.html")
+                        }
                         return response.json();
                     })
                     .then(function (data) {
@@ -130,6 +136,9 @@ $(document).ready(function () {
 
         fetch(geoLocationURL)
             .then(function (response) {
+                if (response.status === 404) {
+                    window.location.replace("/404.html")
+                }
                 return response.json();
             })
             .then(function (data) {
@@ -141,6 +150,9 @@ $(document).ready(function () {
 
                 fetch(weatherUrl)
                     .then(function (response) {
+                        if (response.status === 404) {
+                            window.location.replace("/404.html")
+                        }
                         return response.json();
                     })
                     .then(function (data) {
