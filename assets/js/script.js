@@ -135,6 +135,7 @@ $(document).ready(function () {
                             display5Days(data);
                             console.log(data)
                             // The city just searched is immediately added to the bottom of the search history
+                            historyEl.append("<li id='clear-btn' class='btn btn-secondary my-1'>Clear history</li>")
                             historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + data.city.name + "</li>")
                         });
                 }
