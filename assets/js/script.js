@@ -29,7 +29,7 @@ $(document).ready(function () {
         $("#5-day-forecast").text("5-day forecast");
         for (var i = 0; i < daysChildrenEl.length; i++) {
             // i would start at index 0 which is the current day. Because the current day is already displayed at the top, we want to ignore it and jump ahead to the next day, that is, the next 8th index (40 hour slots dived by 5 days equal 8 slots per day). 
-            var currentEl = data.list[(i*8)+2];
+            var currentEl = data.list[(i * 8) + 2];
 
             var futureDays = daysChildrenEl.eq(i).children();
             var dateFutureEl = futureDays.eq(0);
@@ -184,5 +184,8 @@ $(document).ready(function () {
     })
 
     previousSearches();
-    searchBtnEl.on("click", getApi);
+    searchBtnEl.on("click", function () {
+        $(".alert").remove();
+        getApi();
+    });
 })
