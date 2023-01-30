@@ -22,7 +22,7 @@
         <h1>Weather Forecast</h1>
     </header>
 
-    <main class="container text-center m-3 row vh-100">
+    <main class="container text-center m-3 row">
         <aside class="col-3">
             <form class="row">
                 <label for="search-city" class="form-label my-1">Search for a city</label><br>
@@ -39,7 +39,7 @@
             <div id="today-forecast">
                 <h2 id="city" class="fw-bold display-6"></h2>
                 <h3 id="date"></h3>
-                <div class="d-flex justify-content-between align-items-center mt-4 bg-black bg-opacity-25 pe-5">
+                <div class="d-flex justify-content-between align-items-center mt-4 bg-primary bg-opacity-25 pe-5">
                     <p id="icon"></p>
                     <p id="temp"></p>
                     <p id="wind"></p>
@@ -47,50 +47,50 @@
                 </div>
             </div>
 
-            <div>
+            <div class="mb-5 pb-5">
                 <h2 id="5-day-forecast" class="py-5 fw-bold display-6"></h2>
-                <div id="days" class="d-flex justify-content-between bg-black bg-opacity-25">
+                <div id="days" class="d-flex justify-content-between bg-primary bg-opacity-25">
                     <div id="day-1">
-                        <p id="date1"></p>
-                        <p id="icon1"></p>
-                        <p id="temp1"></p>
-                        <p id="wind1"></p>
-                        <p id="humidity1"></p>
+                        <p id="date1" class="lh-base fw-bolder"></p>
+                        <p id="icon1" class="lh-base"></p>
+                        <p id="temp1" class="lh-base"></p>
+                        <p id="wind1" class="lh-base"></p>
+                        <p id="humidity1" class="lh-base"></p>
                     </div>
                     <div id="day-2">
-                        <p id="date2"></p>
-                        <p id="icon2"></p>
-                        <p id="temp2"></p>
-                        <p id="wind2"></p>
-                        <p id="humidity2"></p>
+                        <p id="date2" class="lh-base fw-bolder"></p>
+                        <p id="icon2" class="lh-base"></p>
+                        <p id="temp2" class="lh-base"></p>
+                        <p id="wind2" class="lh-base"></p>
+                        <p id="humidity2" class="lh-base"></p>
                     </div>
                     <div id="day-3">
-                        <p id="date3"></p>
-                        <p id="icon3"></p>
-                        <p id="temp3"></p>
-                        <p id="wind3"></p>
-                        <p id="humidity3"></p>
+                        <p id="date3" class="lh-base fw-bolder"></p>
+                        <p id="icon3" class="lh-base"></p>
+                        <p id="temp3" class="lh-base"></p>
+                        <p id="wind3" class="lh-base"></p>
+                        <p id="humidity3" class="lh-base"></p>
                     </div>
                     <div id="day-4">
-                        <p id="date4"></p>
-                        <p id="icon4"></p>
-                        <p id="temp4"></p>
-                        <p id="wind4"></p>
-                        <p id="humidity4"></p>
+                        <p id="date4" class="lh-base fw-bolder"></p>
+                        <p id="icon4" class="lh-base"></p>
+                        <p id="temp4" class="lh-base"></p>
+                        <p id="wind4" class="lh-base"></p>
+                        <p id="humidity4" class="lh-base"></p>
                     </div>
                     <div id="day-5">
-                        <p id="date5"></p>
-                        <p id="icon5"></p>
-                        <p id="temp5"></p>
-                        <p id="wind5"></p>
-                        <p id="humidity5"></p>
+                        <p id="date5" class="lh-base fw-bolder"></p>
+                        <p id="icon5" class="lh-base"></p>
+                        <p id="temp5" class="lh-base"></p>
+                        <p id="wind5" class="lh-base"></p>
+                        <p id="humidity5" class="lh-base"></p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="d-flex justify-content-center bg-success pt-3 pb-3 text-white fs-4 mb-0">
+    <footer class="d-flex justify-content-center bg-success pt-3 pb-3 text-white fs-4 mb-0 fixed-bottom">
         <p class="pe-4">© 2023 Sara Seoane García</p>
         <div id="social-media">
             <a class="px-2 text-reset" href="https://www.linkedin.com/in/sara-seoane-garcia/" target="_blank"><i

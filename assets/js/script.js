@@ -40,7 +40,7 @@ $(document).ready(function () {
 
             var imageForFuture = "http://openweathermap.org/img/wn/" + currentEl.weather[0].icon + ".png";
 
-            dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd"));
+            dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd DD MMM"));
             iconFutureEl.html("<img src=" + imageForFuture + ">");
             tempFutureEl.text("Temp: " + Math.round(currentEl.main.temp) + " ℃");
             windFutureEl.text("Wind: " + currentEl.wind.speed + " MPH");
@@ -86,7 +86,6 @@ $(document).ready(function () {
         for (var i = 0; i < alreadySearched.length; i++) {
             historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + alreadySearched[i] + "</li>")
         }
-
     }
 
     // Function to retrieve weather data from the Open Weather Map API
@@ -134,7 +133,7 @@ $(document).ready(function () {
                             // When the data is fetched, we call on the functions to display the weather for the current city selected
                             displayToday(data);
                             display5Days(data);
-                            // The city just searched is inmediatelly added to the bottom of the search history
+                            // The city just searched is immediately added to the bottom of the search history
                             historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + data.city.name + "</li>")
                         });
                 }
@@ -183,7 +182,10 @@ $(document).ready(function () {
         window.location.reload();
     })
 
+    // As soon as the page is loaded, the search history is display if there is data in local storage
     previousSearches();
+
+    // When the search button is clicked, any error messages are cleared before calling on the getAPI function
     searchBtnEl.on("click", function () {
         $(".alert").remove();
         getApi();
