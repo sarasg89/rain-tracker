@@ -18,7 +18,7 @@ $(document).ready(function () {
         dateEl.text(date);
         iconEl.html("<img src=" + image + ">");
         tempEl.text("Temperature: " + Math.round(data.list[0].main.temp) + " ℃");
-        windEl.text("Wind: " + data.list[0].wind.speed + " MPH");
+        windEl.text("Wind: " + data.list[0].wind.speed + " m/s");
         humidityEl.text("Humidity: " + data.list[0].main.humidity + " %");
     }
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
             dateFutureEl.text(dayjs.unix(currentEl.dt).format("dddd DD MMM"));
             iconFutureEl.html("<img src=" + imageForFuture + ">");
             tempFutureEl.text("Temp: " + Math.round(currentEl.main.temp) + " ℃");
-            windFutureEl.text("Wind: " + currentEl.wind.speed + " MPH");
+            windFutureEl.text("Wind: " + currentEl.wind.speed + " m/s");
             humidityFutureEl.text("Humidity: " + currentEl.main.humidity + " %")
 
         }
@@ -133,6 +133,7 @@ $(document).ready(function () {
                             // When the data is fetched, we call on the functions to display the weather for the current city selected
                             displayToday(data);
                             display5Days(data);
+                            console.log(data)
                             // The city just searched is immediately added to the bottom of the search history
                             historyEl.append("<li class='city-btn btn btn-outline-secondary my-1'>" + data.city.name + "</li>")
                         });
